@@ -111,31 +111,19 @@ resource "aws_instance" "publicmachine" {
   ami                         =  "ami-08df646e18b182346"
   instance_type               =  var.instance_type  
   subnet_id                   =  aws_subnet.pubsub.id
-  key_name                    =  var.key_name
+  key_name                    =  "india"
   vpc_security_group_ids      =  ["${aws_security_group.allow_all.id}"]
   associate_public_ip_address =  true
 
   tags = {
     Name = "Public"
   }
-
-  provisioner "file" {
-    source = "/home/terraform/Terra.pem"
-    destination = "/home/ec2-user/Terra.pem"
-     
-    connection {
-    type     = "ssh"
-    user     = "ec2-user"
-    private_key = tls_private_key.private_key.private_key_pem
-    host     = aws_instance.publicmachine.public_ip
-    }
-  }
 }
 resource "aws_instance" "private" {
   ami                         =  "ami-08df646e18b182346"
   instance_type               =  var.instance_type  
   subnet_id                   =  aws_subnet.privsub.id
-  key_name                    =  var.key_name
+  key_name                    =  "india"
   vpc_security_group_ids      =  ["${aws_security_group.allow_all.id}"]
 
    tags = {
