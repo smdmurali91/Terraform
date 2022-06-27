@@ -107,7 +107,7 @@ resource "aws_security_group" "allow_all" {
     Name = "allow_all"
   }
 }
-resource "aws_instance" "publicmachine" {
+resource "aws_instance" "public" {
   ami                         =  "ami-08df646e18b182346"
   instance_type               =  var.instance_type  
   subnet_id                   =  aws_subnet.pubsub.id
@@ -135,6 +135,5 @@ resource "aws_instance" "private" {
 resource "aws_s3_bucket" "Murali" {
     bucket = "090622"
 }
-
 
 
