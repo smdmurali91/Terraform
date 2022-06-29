@@ -1,7 +1,7 @@
 provider "aws" {
   region  =  "ap-south-1"
-  access_key = "AKIAZNGP4MECKR23ROX5"
-  secret_key = "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"
+  access_key = "AKIAVOTNKCDF575P74YH"
+  secret_key = "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"
 }
 
 resource "aws_vpc" "myvpc" {
@@ -111,7 +111,7 @@ resource "aws_instance" "public" {
   ami                         =  "ami-068257025f72f470d"
   instance_type               =  "t2.micro" 
   subnet_id                   =  aws_subnet.pubsub.id
-  key_name                    =  "India"
+  key_name                    =  "Mumbai"
   vpc_security_group_ids      =  ["${aws_security_group.allow_all.id}"]
   associate_public_ip_address =  true
 
@@ -123,7 +123,7 @@ resource "aws_instance" "private" {
   ami                         =  "ami-068257025f72f470d"
   instance_type               =  "t2.micro"
   subnet_id                   =  aws_subnet.privsub.id
-  key_name                    =  "India"
+  key_name                    =  "Mumbai"
   vpc_security_group_ids      =  ["${aws_security_group.allow_all.id}"]
 
    tags = {
